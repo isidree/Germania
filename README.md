@@ -1,5 +1,5 @@
 # GermanBot
-![image](https://github.com/isidree/GermanBot/assets/114698401/4c8f19e7-6210-4101-a7c3-433384764202)
+![image](https://github.com/isidree/Germania/assets/114698401/f27f1e8c-d92b-4512-9151-aab1d52468f1)
 ## Introduction
 GermanBot is a Discord bot built with the npm module "discord.js". Its main goal is to establish a customized economy system for our Discord server, the [Federal Republic of Germany](https://discord.gg/GAPdHF9RSf).
 There are, of course, plenty of bots which can establish an economy in any Discord server. However, many of them are limited. There are some details we would like to add, in order to enhance a better roleplay.

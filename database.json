@@ -1,0 +1,10 @@
+{
+  "accounts": {},
+  "cooldowns": {
+    "work": {},
+    "crime": {},
+    "bet": {},
+    "collect-income": {}
+  },
+  "payouts": {}
+}
