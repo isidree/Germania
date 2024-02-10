@@ -1,0 +1,23 @@
+{
+  "name": "germania",
+  "version": "0.0.1",
+  "description": "A Discord bot dedicated to establish a customized economy system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isidree/Germania.git"
+  },
+  "author": "YpsilonTec Software Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isidree/Germania/issues"
+  },
+  "homepage": "https://github.com/isidree/Germania#readme",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.2"
+  }
+}
