@@ -1,7 +1,7 @@
 const utilities = require("../utilities.js");
 
 const accFunc = (msg) => {
-    let embed = new utilities.mainEmbed().addDescription(":x: Create-account is still being created.").build();
+    let embed = new utilities.mainEmbed().addDescription(":x: CreateAccount is still being created.").build();
     msg.reply({ embeds: [embed] });
 }
 

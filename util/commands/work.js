@@ -2,7 +2,7 @@ const utilities = require("../utilities.js");
 
 const workCmd = (msg) => {
     let account = `~@G-${msg.author.id}`;
-    if (!checkAcc(account)) { msg.reply({ embeds: [ new utilities.mainEmbed().build() ] }); return; }
+    if (!utilities.checkAcc(account)) { msg.reply({ embeds: [ new utilities.mainEmbed().build() ] }); return; }
         
     const jobs = ["librarian", "software developer", "teacher", "nurse", "marketing coordinator", "customer service representative", "carpenter", "graphic designer", "project manager", "sales associate", "receptionist", "chef", "data analyst", "mechanical engineer", "pharmacist", "security guard"];
     let job = jobs[Math.max(0, Math.ceil(Math.random() * jobs.length) - 1)];
