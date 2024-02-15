@@ -1,18 +1,14 @@
 //! Variable initialization
-const fs = require('fs');
-const { EmbedBuilder } = require("discord.js");
+const fs = require('fs'), path = require("path"), { EmbedBuilder } = require("discord.js");
 
-const rawData = fs.readFileSync('database.json');
-let database = JSON.parse(rawData);
-
-const prefix = "!";
-
-//! Function to store in database
-function saveDataToFile() {
-    fs.writeFileSync('database.json', JSON.stringify(database, null, 2));
+//* Check if account exists
+function checkAcc(id) {
+	let path_to = path.join(__dirname, "../data/accounts.json");
+	let object = JSON.parse(fs.readFileSync(path_to));
+	return id in object;
 }
 
-//! Cool number formatting function
+//* Cool number formatting function
 function numberFormat(money) {
 	money = money.toString().split('').reverse();
 
@@ -26,25 +22,23 @@ function numberFormat(money) {
 	return realmoney;
 }
 
-//! Default embed constructor
+//* Default embed constructor
 class mainEmbed {
 	constructor() {
 		this.embed = new EmbedBuilder()
 			.setColor([200, 200, 200])
 			.setTitle(':flag_de: German Empire Bank System :flag_de:')
-			.setDescription(':x: You do not have a bank account yet.')
 	}
 
 	addDescription(description) { this.embed.setDescription(description); return this; }
 	addFields(fields) { for (let k in fields) { this.embed.addFields(fields[k]) } return this; }
 	addFooter(footer) { this.embed.setFooter(footer); return this; }
+	build_error() { this.embed.setDescription(':x: You do not have a bank account yet.'); return this.embed; }
 	build() { return this.embed; }
 }
 
-//! Check if account exists
-const checkAcc = id => id in database.accounts;
 
-
+//! Final export
 module.exports = {
-    prefix, saveDataToFile, numberFormat, mainEmbed, checkAcc
+    checkAcc, numberFormat, mainEmbed
 }

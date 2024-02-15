@@ -2,7 +2,7 @@ const utilities = require("../utilities.js");
 
 const sendHelp = (msg) => {
     let embed = new utilities.mainEmbed()
-        .addDescription(`My prefix is: \`${utilities.prefix}\`.`)
+        .addDescription(`My prefix is: \`${process.env.PREFIX}\`.`)
         .addFields([
             { name: ':grey_question: !help', value: 'Displays this menu.', inline: false },
             { name: ':ballot_box_with_check: !create-account', value: 'Creates a bank account under a unique ID.', inline: false },

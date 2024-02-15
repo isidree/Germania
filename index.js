@@ -1,4 +1,3 @@
-//! Main variables
 require("dotenv").config();
 const { Client, Events, GatewayIntentBits } = require('discord.js');
 
@@ -9,7 +8,6 @@ const client = new Client({ intents: [
 	GatewayIntentBits.MessageContent
 ]});
 
-const utilities = require("./util/utilities.js");
 const funcs = {
     help: require("./util/commands/help.js"),
     leaderboard: require("./util/commands/leaderboard.js"),
@@ -21,15 +19,12 @@ const funcs = {
     admin: require("./util/commands/admin.js")
 }
 
-
-//! Bot online event
 client.once(Events.ClientReady, readyClient => {
 	console.log(`✅ Ready! Logged in as ${readyClient.user.tag}.`);
 });
 
-//! Commands
 client.on('messageCreate', (msg) => {
-    if (msg.author.bot || !msg.content.startsWith(utilities.prefix)) return;
+    if (msg.author.bot || !msg.content.startsWith(process.env.PREFIX)) return;
 
     msg.content = msg.content.substring(1);
 
@@ -40,5 +35,4 @@ client.on('messageCreate', (msg) => {
     }
 });
 
-//! Final login
 client.login(process.env.TOKEN);
