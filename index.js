@@ -8,7 +8,7 @@ const client = new Client({ intents: [
 	GatewayIntentBits.MessageContent
 ]});
 
-const funcs = {
+const commands = {
     help: require("./util/commands/help.js"),
     leaderboard: require("./util/commands/leaderboard.js"),
     createAccount: require("./util/commands/createAccount.js"),
@@ -20,18 +20,16 @@ const funcs = {
 }
 
 client.once(Events.ClientReady, readyClient => {
-	console.log(`✅ Ready! Logged in as ${readyClient.user.tag}.`);
+	console.log(`✅ ${readyClient.user.tag} ready to use.`);
 });
 
 client.on('messageCreate', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(process.env.PREFIX)) return;
 
-    msg.content = msg.content.substring(1);
+    const commandName = msg.content.slice(process.env.PREFIX.length);
 
-    for (let k in funcs) {
-        if (msg.content == k) {
-            funcs[k](msg);
-        }
+    for (let k in commands) {
+        if (commandName == k) commands[k](msg);
     }
 });
 

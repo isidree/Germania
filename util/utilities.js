@@ -1,12 +1,5 @@
 //! Variable initialization
-const fs = require('fs'), path = require("path"), { EmbedBuilder } = require("discord.js");
-
-//* Check if account exists
-function checkAcc(id) {
-	let path_to = path.join(__dirname, "../data/accounts.json");
-	let object = JSON.parse(fs.readFileSync(path_to));
-	return id in object;
-}
+const { EmbedBuilder } = require("discord.js");
 
 //* Cool number formatting function
 function numberFormat(money) {
@@ -37,8 +30,5 @@ class mainEmbed {
 	build() { return this.embed; }
 }
 
-
 //! Final export
-module.exports = {
-    checkAcc, numberFormat, mainEmbed
-}
+module.exports = { numberFormat, mainEmbed }

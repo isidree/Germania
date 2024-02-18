@@ -1,8 +1,10 @@
-const utilities = require("../utilities.js");
+const utilities = require("../utilities.js"), database = require("../database.js");
 
-const accFunc = (msg) => {
-    let embed = new utilities.mainEmbed().addDescription(":x: Bet is still being created.").build();
-    msg.reply({ embeds: [embed] });
+const betCmd = (msg) => {
+    let account = `~@G-${msg.author.id}`;
+    if (!database.checkAcc(account)) { msg.reply({ embeds: [ new utilities.mainEmbed().build_error() ] }); return; }
+
+    
 }
 
-module.exports = accFunc;
+module.exports = betCmd;
